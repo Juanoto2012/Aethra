@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://aura-repo.infinityfreeapp.com/">
+  <a href="https://aethra.infinityfreeapp.com/">
     <img src="https://aura-repo.infinityfreeapp.com/icon.png" width="120" alt="Aura Repo Logo">
   </a>
 </p>
 
-<h1 align="center">🗄️ Aura Repo | Catálogo Libre</h1>
+<h1 align="center">🗄️ Aethra| Catálogo Libre</h1>
 
 <p align="center">
   <strong>El núcleo de datos y el motor del catálogo de software libre.</strong><br>
@@ -12,10 +12,10 @@
 </p>
 
 <p align="center">
-  <a href="https://aura-repo.infinityfreeapp.com/">
-    <img src="https://img.shields.io/badge/Sitio_Web-aura--repo-000000?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Sitio Web">
+  <a href="https://aethra.infinityfreeapp.com/">
+    <img src="https://img.shields.io/badge/Sitio_Web-Aethra-000000?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Sitio Web">
   </a>
-  <a href="https://github.com/Juanoto2012/Aura-Repo/issues">
+  <a href="https://github.com/Juanoto2012/Aethra/issues">
     <img src="https://img.shields.io/badge/Añadir_App-RFP-000000?style=for-the-badge&logo=github&logoColor=white" alt="Submit App">
   </a>
   <img src="https://img.shields.io/github/v/release/Juanoto2012/Aura-Repo?style=for-the-badge&color=000000" alt="Version">
@@ -25,7 +25,7 @@
 
 ## 📖 Acerca de este Repositorio
 
-Este repositorio actúa como el **Backend "Serverless"** de [Aura Repo](https://aura-repo.infinityfreeapp.com/). Contiene el archivo maestro `apps.json`, el cual alimenta dinámicamente la interfaz de nuestra tienda. 
+Este repositorio actúa como el **Backend "Serverless"** de [Aethra](https://aura-repo.infinityfreeapp.com/). Contiene el archivo maestro `apps.json`, el cual alimenta dinámicamente la interfaz de nuestra tienda. 
 
 Nuestra misión es ofrecer un repositorio de Android moderno y pragmático que permita aplicaciones de IA y conectividad total, manteniendo la seguridad mediante análisis de malware automatizados.
 
@@ -58,7 +58,7 @@ El archivo `apps.json` contiene la base de datos de todas las aplicaciones lista
   "timestamp": "2026-04-03T12:00:00Z"
 }
 ```
- # 🌌 Aura Repo (by JNTX Studio)
+ # 🌌 Aethra (by JNTX Studio)
 
 > **"Innovación sin dogmas, creación sin permisos."**
 
@@ -77,7 +77,7 @@ En Aura Repo, rompemos con las reglas obsoletas que frenan a los desarrolladores
 
 ---
 
-## 🚀 Cómo añadir Aura Repo a tu dispositivo
+## 🚀 Cómo añadir Aethra a tu dispositivo
 
 Para disfrutar de **Ventarys** y otras aplicaciones de **JNTX Studio** sin restricciones ni etiquetas rojas:
 
