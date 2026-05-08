@@ -1,10 +1,10 @@
-# 📜 App Submission Policy (Aura Repo)
+# 📜 App Submission Policy (Aethra)
 
-Welcome to **Aura Repo**. Our mission is to provide a modern, secure, and frictionless catalog of open-source Android apps.
+Welcome to **Aethra**. Our mission is to provide a modern, secure, and frictionless catalog of open-source Android apps.
 
 Unlike other traditional repositories that have extremely strict rules about what constitutes a "pure" app or that require compiling everything from scratch, we take a **pragmatic** approach. We believe in free software, but also in modern technologies.
 
-Below, we detail our criteria for accepting an app into Aura Repo:
+Below, we detail our criteria for accepting an app into Aethra:
 
 ## ✅ 1. Open Source
 The app **must** have its source code published under a recognized free or open-source license (GPL, MIT, Apache, etc.). The repository must be publicly accessible (e.g., on GitHub or GitLab).
