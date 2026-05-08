@@ -32,7 +32,7 @@ Nuestra misión es ofrecer un repositorio de Android moderno y pragmático que p
 ## 😉 Usa nuestro badge personalizado en tu repositorio o sitio web 
 
 <a href="https://aura-repo.infinityfreeapp.com/?appid=your_app_id">
-  <img src="https://aura-repo.infinityfreeapp.com/shield.png" alt="Get it on Aura" width="321">
+  <img src="https://aethra.infinityfreeapp.com/badge.png" alt="Get it on Aethra" width="321">
 </a>
 
 ## 📄 El Archivo Maestro (`apps.json`)
