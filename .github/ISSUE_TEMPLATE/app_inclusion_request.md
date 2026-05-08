@@ -26,7 +26,7 @@ Por favor, marca las casillas con una `x` `[x]` antes de enviar la solicitud:
 - [ ] Entiendo que el APK será analizado con **VirusTotal** antes de ser aprobado.
 
 ## 🤖 Notas adicionales sobre IA o APIs (Opcional)
-Si tu app utiliza servicios externos, APIs (ej. OpenAI, Gemini, TMDB) o modelos de IA, descríbelo brevemente aquí. (En Aura Repo **sí** permitimos esto).
+Si tu app utiliza servicios externos, APIs (ej. OpenAI, Gemini, TMDB) o modelos de IA, descríbelo brevemente aquí. (En Aethra **sí** permitimos esto).
 
 ---
-*Gracias por contribuir a que Aura Repo crezca con el mejor software libre.* 🌟
+*Gracias por contribuir a que Aethra crezca con el mejor software libre.* 🌟
