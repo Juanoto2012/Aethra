@@ -22,7 +22,7 @@ Por favor, marca las casillas con una `x` `[x]` antes de enviar la solicitud:
 
 - [ ] La aplicación es de **código abierto** (Open Source / Software Libre).
 - [ ] La aplicación tiene archivos `.apk` disponibles públicamente en la sección de *Releases* de GitHub.
-- [ ] He leído la [Política de Inclusión de Apps](https://github.com/Juanoto2012/Aura-Repo/blob/main/app_inclusion_policy.md) de Aura Repo.
+- [ ] He leído la [Política de Inclusión de Apps](https://github.com/Juanoto2012/Aethra/blob/main/app_inclusion_policy.md) de Aethra.
 - [ ] Entiendo que el APK será analizado con **VirusTotal** antes de ser aprobado.
 
 ## 🤖 Notas adicionales sobre IA o APIs (Opcional)
