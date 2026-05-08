@@ -25,7 +25,7 @@
 
 ## 📖 Acerca de este Repositorio
 
-Este repositorio actúa como el **Backend "Serverless"** de [Aethra](https://aura-repo.infinityfreeapp.com/). Contiene el archivo maestro `apps.json`, el cual alimenta dinámicamente la interfaz de nuestra tienda. 
+Este repositorio actúa como el **Backend "Serverless"** de [Aethra](https://aethra.infinityfreeapp.com/). Contiene el archivo maestro `apps.json`, el cual alimenta dinámicamente la interfaz de nuestra tienda. 
 
 Nuestra misión es ofrecer un repositorio de Android moderno y pragmático que permita aplicaciones de IA y conectividad total, manteniendo la seguridad mediante análisis de malware automatizados.
 
