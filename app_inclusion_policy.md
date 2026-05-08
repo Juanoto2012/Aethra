@@ -1,6 +1,6 @@
-# 📜 Política de Inclusión de Aplicaciones (Aura Repo)
+# 📜 Política de Inclusión de Aplicaciones (Aethra)
 
-Bienvenido a **Aura Repo**. Nuestra misión es proporcionar un catálogo moderno, seguro y sin fricciones de aplicaciones de código abierto para Android. 
+Bienvenido a **Aethra**. Nuestra misión es proporcionar un catálogo moderno, seguro y sin fricciones de aplicaciones de código abierto para Android. 
 
 A diferencia de otros repositorios tradicionales que tienen reglas extremadamente estrictas sobre qué constituye una app "pura" o que exigen compilar todo desde cero, nosotros adoptamos un enfoque **pragmático**. Creemos en el software libre, pero también en las tecnologías modernas.
 
