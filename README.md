@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://aethra.infinityfreeapp.com/">
-    <img src="https://aura-repo.infinityfreeapp.com/icon.png" width="120" alt="Aura Repo Logo">
+    <img src="https://aethra.infinityfreeapp.com/logo.png" width="120" alt="Aura Repo Logo">
   </a>
 </p>
 
