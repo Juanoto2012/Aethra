@@ -1,6 +1,6 @@
 ---
 Name: "🚀 App Inclusion Request (RFP) EN-US Version"
-About: "Propose a new open-source application to be added to the Aura Repo."
+About: "Propose a new open-source application to be added to the Aethra Repo."
 
 title: "[App]: <App Name>"
 labels: ["RFP", "evaluation"]
@@ -25,12 +25,12 @@ Please mark the boxes with an `x` before submitting your application:
 
 - [ ] The application has publicly available `.apk` files in the GitHub *Releases* section.
 
-- [ ] I have read the Aura Repo [App Inclusion Policy](https://github.com/Juanoto2012/Aura-Repo/blob/main/app_inclusion_policy.md).
+- [ ] I have read the Aura Repo [App Inclusion Policy](https://github.com/Juanoto2012/Aethra/blob/main/app_inclusion_policy.md).
 
 - [ ] I understand that the APK will be scanned with **VirusTotal** before being approved.
 
 ## 🤖 Additional Notes on AI or APIs (Optional)
-If your app uses external services, APIs (e.g., OpenAI, Gemini, TMDB), or AI models, please briefly describe them here. (We **do** allow this in Aura Repo).
+If your app uses external services, APIs (e.g., OpenAI, Gemini, TMDB), or AI models, please briefly describe them here. (We **do** allow this in Aethra).
 
 ---
-*Thank you for helping Aura Repo grow with the best free software.* 🌟
+*Thank you for helping Aethra grow with the best free software.* 🌟
