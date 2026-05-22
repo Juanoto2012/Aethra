@@ -21,28 +21,5 @@
       "download_url": "https://github.com/Juanoto2012/OpenMaps/releases/download/V1.1.4/app-fdroid-release.apk",
       "timestamp": "2026-04-03T12:00:00Z",
       "featured": true
-    },
-    {
-      "id": "com.jntx.ember",
-      "name": "Ember Browser",
-      "developer": "JNTX Studio",
-      "short_desc": "Modern, fast, and secure Android web browser built with Jetpack Compose.",
-      "description": "Ember is a modern, fast, and secure Android web browser designed with a focus on user experience and productivity. Built using Jetpack Compose, it offers a clean interface with advanced features that make it a powerful alternative to traditional browsers.\n\n✨ Features\n- Modern UI: Material 3 design with a custom color palette.\n- Security & Privacy: Forced HTTPS, SSL certificate blocking, and granular permissions.\n- Smart Navigation: Real-time suggestions and pull-to-refresh support.\n- Tab Manager Pro: High-efficiency vertical list switcher.\n- Integrated Ad-Blocker: Built-in blocking for common ad domains.\n- Integrated TTS (Text-to-Speech): Read Page feature to narrate any article.\n- Enhanced Downloads: Custom download paths and integrated manager.\n- Multimedia Pro: Full support for inline video and background audio.\n- Visual Data Management: Favicon support and comprehensive cleaning tools.\n- Custom Home: Improved start page with quick links and smart search.",
-      "version": "1.2",
-      "size": "14.4 MB",
-      "license": "AGPL-3.0",
-      "category": "herramientas",
-      "repo_url": "https://github.com/Juanoto2012/Ember",
-      "iconText": "EM",
-      "icon_url": "https://raw.githubusercontent.com/Juanoto2012/Ember/master/app/src/main/res/mipmap-hdpi/ic_launcher.png",
-      "screenshots": [
-        "https://raw.githubusercontent.com/Juanoto2012/Ember/master/fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_2026-03-15-07-06-55-163_com.jntx.emberbrowser.jpg",
-        "https://raw.githubusercontent.com/Juanoto2012/Ember/master/fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_2026-03-15-07-07-02-329_com.jntx.emberbrowser.jpg",
-        "https://raw.githubusercontent.com/Juanoto2012/Ember/master/fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_2026-03-15-07-07-08-919_com.jntx.emberbrowser.jpg",
-        "https://raw.githubusercontent.com/Juanoto2012/Ember/master/fastlane/metadata/android/en-US/images/phoneScreenshots/Screenshot_2026-03-15-07-08-53-002_com.jntx.emberbrowser.jpg"
-      ],
-      "download_url": "https://github.com/Juanoto2012/Ember/releases/download/V1.2/app-release.apk",
-      "timestamp": "2026-02-26T12:00:00Z",
-      "featured": false
     }
   ]
