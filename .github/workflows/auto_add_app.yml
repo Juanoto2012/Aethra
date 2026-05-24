@@ -1,0 +1,43 @@
+name: Auto-Añadir App
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  procesar-app:
+    runs-on: ubuntu-latest
+    # Solo correr si el issue tiene la etiqueta "nueva-app" (que el formulario pone por defecto)
+    if: contains(github.event.issue.labels.*.name, 'nueva-app')
+    
+    # IMPORTANTE: Permisos para que el bot pueda subir código
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Descargar Repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Ejecutar Script de Actualización
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python .github/scripts/update_apps.py
+
+      - name: Guardar en GitHub (Commit y Push)
+        run: |
+          git config --global user.name "Aethra Bot"
+          git config --global user.email "bot@aethra.local"
+          git add apps.json
+          # Si no hay cambios, no fallar
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🚀 Añadida app vía Issue #${{ github.event.issue.number }}" && git push)
+
+      - name: Responder y Cerrar el Issue
+        uses: peter-evans/close-issue@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          comment: "¡Genial! 🚀 La aplicación ha sido procesada y añadida automáticamente a `apps.json`. Ya debería estar disponible en la tienda."
