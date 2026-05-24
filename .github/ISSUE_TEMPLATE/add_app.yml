@@ -1,0 +1,84 @@
+name: "➕ Añadir nueva App"
+description: "Sube tu aplicación al catálogo de Aethra"
+title: "[App]: "
+labels: ["nueva-app"]
+body:
+  - type: input
+    id: id
+    attributes:
+      label: "ID de la App"
+      description: "Un identificador único en minúsculas y sin espacios (ej. mi-app-genial)"
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: "Nombre de la App"
+    validations:
+      required: true
+  - type: input
+    id: developer
+    attributes:
+      label: "Desarrollador"
+    validations:
+      required: true
+  - type: input
+    id: short_desc
+    attributes:
+      label: "Descripción Corta"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "Descripción"
+    validations:
+      required: true
+  - type: input
+    id: icon_url
+    attributes:
+      label: "URL del Icono"
+      description: "Enlace directo a la imagen del logo"
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Categoría"
+      options:
+        - "Acción"
+        - "Aventura"
+        - "Herramientas"
+        - "Productividad"
+        - "Educación"
+        - "Comunicación"
+        - "Social"
+        - "Multimedia"
+        - "Personalización"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "Versión"
+      description: "Ejemplo: 1.0.5"
+  - type: input
+    id: size
+    attributes:
+      label: "Tamaño"
+      description: "Ejemplo: 15 MB"
+  - type: input
+    id: license
+    attributes:
+      label: "Licencia"
+      description: "Ejemplo: GPLv3, MIT, Freeware"
+  - type: input
+    id: download_url
+    attributes:
+      label: "URL de Descarga"
+      description: "Enlace para descargar el archivo o app"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: "URL del Repositorio"
+      description: "(Opcional) Enlace al código fuente en GitHub/GitLab"
