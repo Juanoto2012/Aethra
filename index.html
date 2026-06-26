@@ -187,6 +187,13 @@
         }
         .platform-btn:hover { background-color: var(--md-sys-color-surface-container-high); border-color: var(--md-sys-color-primary); }
         .platform-btn:active { transform: scale(0.98); }
+        
+        .shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, var(--md-sys-color-surface-container) 4%, var(--md-sys-color-surface-container-high) 25%, var(--md-sys-color-surface-container) 36%);
+            background-size: 1000px 100%;
+        }
+        @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
     </style>
 </head>
 <body class="font-body overflow-x-hidden transition-colors duration-300 antialiased flex flex-col min-h-screen">
@@ -373,7 +380,7 @@
                 <div class="flex justify-start gap-8 items-center py-3 mb-6 border-y border-[var(--md-sys-color-outline-variant)]">
                     <div class="flex flex-col items-start">
                         <div class="font-medium text-[14px] text-[var(--md-sys-color-on-surface)] flex items-center gap-1">
-                            <span id="modalVersion">v1.0</span>
+                            <span id="modalVersion" class="transition-all duration-300">v1.0</span>
                         </div>
                         <div class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">Versión</div>
                     </div>
@@ -382,7 +389,7 @@
                         <div class="font-medium text-[14px] text-[var(--md-sys-color-on-surface)] flex items-center gap-1">
                             <md-icon class="text-[16px] notranslate">history</md-icon>
                         </div>
-                        <div id="modalDate" class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">N/A</div>
+                        <div id="modalDate" class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5 transition-all duration-300">N/A</div>
                     </div>
                     <div class="w-px h-6 bg-[var(--md-sys-color-outline-variant)]"></div>
                     <div class="flex flex-col items-center">
@@ -572,7 +579,6 @@
                 return await res.json();
             } catch (e) {
                 console.warn(`Intento directo a ${url} falló. Intentando Proxy...`);
-                // Use a proxy robust enough for larger JSONs like F-Droid if needed
                 const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(fetchUrl)}`;
                 const proxyRes = await fetch(proxyUrl, { cache: 'no-store' });
                 if (!proxyRes.ok) throw new Error('Proxy Falló');
@@ -1094,7 +1100,7 @@
         const modal = document.getElementById('appModal');
 
         // ==========================================
-        // OBTENCIÓN DINÁMICA MULTIPLATAFORMA
+        // OBTENCIÓN DINÁMICA DE RELEASES Y VERSIONES
         // ==========================================
         async function fetchGitRelease(app) {
             if(!app.git_info) return null;
@@ -1111,10 +1117,17 @@
                 const data = await response.json();
                 
                 let assets = [];
+                let versionStr = data.tag_name || data.name || null;
+                let dateStr = data.published_at || data.released_at || data.created_at || null;
+
                 if (provider === 'gitlab') assets = data.assets && data.assets.links ? data.assets.links : [];
                 else assets = data.assets || [];
 
-                return categorizeAssets(assets);
+                return {
+                    platforms: categorizeAssets(assets),
+                    version: versionStr,
+                    date: dateStr
+                };
             } catch(e) {
                 console.warn(`Error fetching ${provider} release:`, e);
                 return null;
@@ -1152,7 +1165,7 @@
                     group.forEach(asset => {
                         totalOptions++;
                         const btn = document.createElement('button');
-                        btn.className = "platform-btn group w-full text-left";
+                        btn.className = "platform-btn group w-full text-left animate-fade-in";
                         btn.onclick = () => {
                             showToast(`Iniciando descarga: ${asset.name}`);
                             const a = document.createElement('a'); a.href = asset.url; a.target = '_blank';
@@ -1181,15 +1194,13 @@
                 addPlatformGroup(platforms.windows, 'window', 'Descargar para Windows', 'text-blue-500');
                 addPlatformGroup(platforms.linux, 'terminal', 'Descargar para Linux', 'text-orange-500');
                 addPlatformGroup(platforms.macos, 'laptop_mac', 'Descargar para Mac', 'text-gray-600 dark:text-gray-300');
-                // addPlatformGroup(platforms.other, 'folder_zip', 'Otros archivos fuente', 'text-gray-500'); // Opcional
             }
 
             if (totalOptions === 0 && app.download_url) {
-                // Fallback para apps F-Droid puras u otros repos sin git releases parseables
                 let finalSize = app.size ? (typeof app.size === 'number' ? (app.size / (1024*1024)).toFixed(1)+' MB' : app.size) : 'Tamaño desconocido';
                 
                 const btn = document.createElement('button');
-                btn.className = "w-full bg-[var(--md-sys-color-primary)] text-white rounded-full py-3 font-medium text-[15px] transition-all hover:shadow-md active:scale-[0.99] flex justify-center items-center gap-2";
+                btn.className = "w-full bg-[var(--md-sys-color-primary)] text-white rounded-full py-3 font-medium text-[15px] transition-all hover:shadow-md active:scale-[0.99] flex justify-center items-center gap-2 animate-fade-in";
                 btn.onclick = () => {
                     showToast('Iniciando descarga...');
                     const a = document.createElement('a'); a.href = app.download_url; a.target = '_blank';
@@ -1198,7 +1209,7 @@
                 btn.innerHTML = `Descargar APK <span class="text-white/80 font-normal text-sm">(${finalSize})</span>`;
                 container.appendChild(btn);
             } else if (totalOptions === 0) {
-                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2">No se encontraron archivos binarios disponibles. Revisa el código fuente.</div>`;
+                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2 animate-fade-in">No se encontraron archivos binarios disponibles. Revisa el código fuente.</div>`;
             }
         }
 
@@ -1216,8 +1227,16 @@
 
             document.getElementById('modalDesc').textContent = app.description;
             document.getElementById('modalLicense').textContent = app.license || 'Libre / Open Source';
-            document.getElementById('modalVersion').textContent = app.version ? "v" + app.version : '1.0';
-            document.getElementById('modalDate').textContent = app.timestamp ? new Date(app.timestamp).toLocaleDateString('es-ES', {year:'numeric', month:'short', day:'numeric'}) : "Desconocido";
+            
+            // Textos por defecto mientras carga
+            const defaultVersion = app.version ? "v" + app.version.replace(/^v/i, '') : '1.0';
+            const defaultDate = app.timestamp ? new Date(app.timestamp).toLocaleDateString('es-ES', {year:'numeric', month:'short', day:'numeric'}) : "Desconocido";
+            
+            const versionEl = document.getElementById('modalVersion');
+            const dateEl = document.getElementById('modalDate');
+            
+            versionEl.textContent = defaultVersion;
+            dateEl.textContent = defaultDate;
 
             const repoSourceBadge = document.getElementById('modalRepoSource');
             if (repoSourceBadge) repoSourceBadge.textContent = app.repo_source || "Desconocido";
@@ -1237,17 +1256,37 @@
                 screenshotsContainer.classList.remove('hidden');
             } else { screenshotsContainer.classList.add('hidden'); }
 
-            // Lógica de cálculo dinámico Multiplataforma
             const container = document.getElementById('modalDownloads');
-            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Obteniendo versiones...</div>`;
+            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Obteniendo versión y descargas...</div>`;
+            
+            // Mostramos el modal de inmediato
+            modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; 
 
+            // Carga asíncrona de la Release y la Versión
             if (app.git_info) {
-                const platforms = await fetchGitRelease(app);
+                const releaseData = await fetchGitRelease(app);
+                
+                // Comprobamos que el usuario no cerró ni cambió de app mientras cargaba
                 if(document.getElementById('modalTitle').textContent === app.name) {
-                    buildDownloadUI(app, platforms);
+                    if (releaseData) {
+                        // Actualizar versión dinámica
+                        if (releaseData.version) {
+                            versionEl.innerHTML = `<span class="animate-fade-in">v${releaseData.version.replace(/^v/i, '')}</span>`;
+                        }
+                        // Actualizar fecha dinámica
+                        if (releaseData.date) {
+                            const dateObj = new Date(releaseData.date);
+                            dateEl.innerHTML = `<span class="animate-fade-in">${dateObj.toLocaleDateString('es-ES', {year:'numeric', month:'short', day:'numeric'})}</span>`;
+                        }
+                        
+                        buildDownloadUI(app, releaseData.platforms);
+                    } else {
+                        // Fallback si falla la API
+                        buildDownloadUI(app, null); 
+                    }
                 }
             } else {
-                // Instancia regular desde JSON (EJ: F-Droid directo)
                 buildDownloadUI(app, null); 
             }
 
@@ -1265,9 +1304,6 @@
                     } catch (e) { console.log('Error compartiendo:', e); }
                 };
             }
-
-            modal.classList.remove('hidden'); modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; }
