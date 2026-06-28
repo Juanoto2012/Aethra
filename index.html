@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aethra | Catálogo Universal Libre</title>
+    <title>Aethra | Universal Open Catalog</title>
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ffffff">
@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="logo.png">
     
     <link rel="icon" href="logo.png">
-    <meta name="description" content="Aethra: Gestor de repositorios universal multiplataforma y aplicaciones open-source." />
+    <meta name="description" content="Aethra: Cross-platform universal repository manager and open-source applications." />
     
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -24,22 +24,6 @@
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <script>
-        (function() {
-            if (!localStorage.getItem('aethra_lang_detected')) {
-                const browserLang = navigator.language.slice(0, 2);
-                const supportedLangs = ['es', 'en', 'fr', 'de', 'it', 'pt', 'ru', 'zh-CN', 'ja', 'ko'];
-                const targetLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
-
-                if (targetLang !== 'es') {
-                    document.cookie = `googtrans=/es/${targetLang}; path=/;`;
-                    document.cookie = `googtrans=/es/${targetLang}; path=/; domain=${location.hostname};`;
-                }
-                localStorage.setItem('aethra_lang_detected', 'true');
-            }
-        })();
-    </script>
 
     <script>
         const updateThemeColor = () => {
@@ -163,20 +147,6 @@
             z-index: 1000; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .goog-te-banner-frame.skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, #goog-gt-tt, .goog-te-gadget-icon, .goog-tooltip { display: none !important; }
-        body { top: 0px !important; position: static !important; }
-        #google_translate_element { display: none !important; }
-        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
-
-        .custom-lang-selector {
-            display: block; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500;
-            color: var(--md-sys-color-on-surface-variant); background-color: transparent; border: none;
-            padding: 8px 30px 8px 8px; margin: 0; outline: none; cursor: pointer; appearance: none; 
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%235f6368%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat; background-position: right 8px center; height: 38px;
-        }
-        .dark .custom-lang-selector { background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%239aa0a6%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E"); }
-        
         .platform-btn {
             display: flex; align-items: center; justify-content: space-between;
             padding: 12px 16px; border-radius: 12px;
@@ -198,8 +168,7 @@
 </head>
 <body class="font-body overflow-x-hidden transition-colors duration-300 antialiased flex flex-col min-h-screen">
 
-    <div id="google_translate_element"></div>
-    <div id="toast">Notificación</div>
+    <div id="toast">Notification</div>
 
     <nav class="fixed w-full z-50 md3-nav top-0 h-[76px] flex items-center shadow-sm">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 w-full flex items-center justify-between gap-4">
@@ -210,26 +179,16 @@
 
             <div class="flex-grow max-w-2xl relative hidden md:block mx-6">
                 <md-icon translate="no" class="absolute left-4 top-3.5 text-[var(--md-sys-color-on-surface-variant)] z-10 notranslate">search</md-icon>
-                <input type="text" id="searchInputDesktop" placeholder="Buscar aplicaciones..." class="search-input font-medium text-[15px] relative z-0" autocomplete="off">
+                <input type="text" id="searchInputDesktop" placeholder="Search applications..." class="search-input font-medium text-[15px] relative z-0" autocomplete="off">
                 <div id="suggestionsDesktop" class="absolute top-[110%] left-0 right-0 bg-[var(--md-sys-color-surface-container-low)] rounded-2xl shadow-lg z-50 hidden flex-col overflow-hidden py-2 max-h-[60vh] overflow-y-auto no-scrollbar border border-[var(--md-sys-color-outline-variant)]"></div>
             </div>
 
             <div class="flex items-center gap-1 sm:gap-3 shrink-0">
-                <button onclick="openSourcesModal()" class="relative overflow-hidden hidden sm:flex items-center gap-2 text-[var(--md-sys-color-primary)] px-3 py-2 rounded-xl font-medium text-[15px] hover:bg-[var(--md-sys-color-surface-container)] transition-all" title="Gestionar Repositorios">
-                    <md-icon translate="no" class="notranslate" style="font-size: 22px;">source</md-icon> Fuentes
+                <button onclick="openSourcesModal()" class="relative overflow-hidden hidden sm:flex items-center gap-2 text-[var(--md-sys-color-primary)] px-3 py-2 rounded-xl font-medium text-[15px] hover:bg-[var(--md-sys-color-surface-container)] transition-all" title="Manage Repositories">
+                    <md-icon translate="no" class="notranslate" style="font-size: 22px;">source</md-icon> Sources
                 </button>
 
-                <div class="hidden sm:flex items-center gap-1 bg-[var(--md-sys-color-surface)] border border-[var(--md-sys-color-outline-variant)] rounded-full pl-3 pr-1 py-0.5 hover:bg-[var(--md-sys-color-surface-container)] transition-colors cursor-pointer">
-                    <md-icon class="text-[18px] text-[var(--md-sys-color-on-surface-variant)] notranslate" translate="no">translate</md-icon>
-                    <select class="custom-lang-selector" onchange="changeLanguage(this.value)">
-                        <option value="es">ES</option>
-                        <option value="en">EN</option>
-                        <option value="fr">FR</option>
-                        <option value="pt">PT</option>
-                    </select>
-                </div>
-
-                <button onclick="openSettings()" class="flex w-10 h-10 items-center justify-center rounded-full bg-[var(--md-sys-color-primary)] text-white hover:opacity-90 transition-opacity shadow-sm font-bold text-lg" title="Configuración">
+                <button onclick="openSettings()" class="flex w-10 h-10 items-center justify-center rounded-full bg-[var(--md-sys-color-primary)] text-white hover:opacity-90 transition-opacity shadow-sm font-bold text-lg" title="Settings">
                     <span id="profileInitial">A</span>
                 </button>
             </div>
@@ -239,7 +198,7 @@
     <div id="mobileSearch" class="fixed top-[76px] left-0 w-full bg-[var(--md-sys-color-surface)] z-40 p-4 border-b border-[var(--md-sys-color-outline-variant)] hidden md:hidden shadow-sm animate-slide-up">
         <div class="relative w-full">
             <md-icon translate="no" class="absolute left-4 top-3.5 text-[var(--md-sys-color-on-surface-variant)] z-10 notranslate">search</md-icon>
-            <input type="text" id="searchInputMobile" placeholder="Buscar aplicaciones..." class="search-input font-medium text-[15px] relative z-0 py-3" autocomplete="off">
+            <input type="text" id="searchInputMobile" placeholder="Search applications..." class="search-input font-medium text-[15px] relative z-0 py-3" autocomplete="off">
             <div id="suggestionsMobile" class="absolute top-[110%] left-0 right-0 bg-[var(--md-sys-color-surface)] rounded-2xl shadow-lg z-50 hidden flex-col overflow-y-auto max-h-[50vh] py-2 no-scrollbar border border-[var(--md-sys-color-outline-variant)]"></div>
         </div>
     </div>
@@ -249,7 +208,7 @@
             <div class="relative w-12 h-12 mb-4 flex items-center justify-center">
                 <md-icon translate="no" class="animate-spin text-4xl notranslate">autorenew</md-icon>
             </div>
-            <p class="font-medium font-sans text-lg text-[var(--md-sys-color-on-surface)]">Cargando repositorios...</p>
+            <p class="font-medium font-sans text-lg text-[var(--md-sys-color-on-surface)]">Loading repositories...</p>
         </div>
 
         <div id="emptyState" class="hidden text-center py-40 text-[var(--md-sys-color-on-surface-variant)] px-4"></div>
@@ -261,9 +220,9 @@
 
             <section class="px-4 sm:px-6 mb-6 sticky top-[76px] z-30 bg-[var(--md-sys-color-surface)] pb-2 pt-2 shadow-sm border-b border-[var(--md-sys-color-outline-variant)] sm:border-none sm:shadow-none">
                 <div class="flex gap-4 overflow-x-auto no-scrollbar pb-1">
-                    <button class="filter-btn active shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] transition-colors" data-tab="home" onclick="switchTab('home')">Para ti</button>
-                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="categorias" onclick="switchTab('categorias')">Categorías</button>
-                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="novedades" onclick="switchTab('novedades')">Novedades</button>
+                    <button class="filter-btn active shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] transition-colors" data-tab="home" onclick="switchTab('home')">For You</button>
+                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="categorias" onclick="switchTab('categorias')">Categories</button>
+                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="novedades" onclick="switchTab('novedades')">New Releases</button>
                 </div>
             </section>
 
@@ -273,7 +232,7 @@
 
             <section id="carouselSection" class="px-4 sm:px-6 mb-12 animate-fade-in">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Recién actualizadas</h2>
+                    <h2 class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Recently Updated</h2>
                     <button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface-variant)] transition-colors"><md-icon translate="no" class="notranslate" style="font-size:20px;">arrow_forward</md-icon></button>
                 </div>
                 <div id="recentCarousel" class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-2 -mx-4 px-4 sm:mx-0 sm:px-0"></div>
@@ -281,14 +240,14 @@
 
             <section class="px-4 sm:px-6 mb-16 animate-fade-in relative">
                 <div id="gridTitleContainer" class="flex justify-between items-center mb-4">
-                    <h2 id="gridSectionTitle" class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Recomendado para ti</h2>
+                    <h2 id="gridSectionTitle" class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Recommended for you</h2>
                 </div>
                 
                 <div id="appsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"></div>
                 
                 <div id="loadMoreContainer" class="mt-6 text-center hidden">
                     <button onclick="loadMoreApps()" class="text-[var(--md-sys-color-primary)] px-6 py-2 rounded-full font-medium text-[14px] hover:bg-[var(--md-sys-color-primary-container)] transition-colors inline-flex items-center gap-2">
-                        Mostrar más
+                        Show More
                     </button>
                 </div>
             </section>
@@ -298,26 +257,26 @@
     <div class="fixed bottom-0 left-0 w-full z-[60] sm:hidden bg-[var(--md-sys-color-surface)] border-t border-[var(--md-sys-color-outline-variant)] flex justify-around items-center px-2 py-1 pb-safe">
         <button id="nav-mobile-home" class="flex-1 flex flex-col items-center justify-center py-2 px-1 text-[var(--md-sys-color-primary)] transition-colors" onclick="switchTab('home')">
             <div class="px-4 py-1 rounded-full bg-[var(--md-sys-color-primary-container)] mb-1"><md-icon translate="no" class="notranslate" style="font-size: 24px;">explore</md-icon></div>
-            <span class="text-[11px] font-medium">Tienda</span>
+            <span class="text-[11px] font-medium">Store</span>
         </button>
         <button id="nav-mobile-categorias" class="flex-1 flex flex-col items-center justify-center py-2 px-1 text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] transition-colors" onclick="switchTab('categorias')">
             <div class="px-4 py-1 rounded-full mb-1"><md-icon translate="no" class="notranslate" style="font-size: 24px;">grid_view</md-icon></div>
-            <span class="text-[11px] font-medium">Categorías</span>
+            <span class="text-[11px] font-medium">Categories</span>
         </button>
         <button id="nav-mobile-search" class="flex-1 flex flex-col items-center justify-center py-2 px-1 text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] transition-colors" onclick="toggleMobileSearch()">
             <div class="px-4 py-1 rounded-full mb-1"><md-icon translate="no" class="notranslate" style="font-size: 24px;">search</md-icon></div>
-            <span class="text-[11px] font-medium">Buscar</span>
+            <span class="text-[11px] font-medium">Search</span>
         </button>
     </div>
 
-    <!-- MODAL DE FUENTES -->
+    <!-- SOURCES MODAL -->
     <div id="sourcesModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 transition-all duration-300">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeSourcesModal()"></div>
         <div class="bg-[var(--md-sys-color-surface)] w-full max-w-md rounded-[24px] relative z-10 overflow-hidden flex flex-col animate-slide-up max-h-[85vh] shadow-xl">
             <div class="flex justify-between items-center p-6 pb-4 border-b border-[var(--md-sys-color-outline-variant)]">
                 <div>
-                    <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">Fuentes de aplicaciones</h2>
-                    <p class="text-sm text-[var(--md-sys-color-on-surface-variant)]">Añade catálogos externos, JSON, F-Droid o Izzy</p>
+                    <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">App Sources</h2>
+                    <p class="text-sm text-[var(--md-sys-color-on-surface-variant)]">Add external catalogs, JSON, F-Droid or Izzy</p>
                 </div>
                 <button onclick="closeSourcesModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface-variant)] transition-colors"><md-icon translate="no" class="notranslate">close</md-icon></button>
             </div>
@@ -325,29 +284,29 @@
             <div class="p-6 flex flex-col gap-6 overflow-y-auto no-scrollbar">
                 
                 <div>
-                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Añadir URL de repositorio manualmente</h3>
+                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Add repository URL manually</h3>
                     <div class="flex flex-col gap-3">
                         <input type="url" id="customRepoUrl" placeholder="https://f-droid.org/repo/index-v1.json" class="w-full bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] border border-[var(--md-sys-color-outline-variant)] rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[var(--md-sys-color-primary)] focus:ring-1 focus:ring-[var(--md-sys-color-primary)] transition-all">
-                        <button onclick="addCustomRepo()" class="w-full bg-[var(--md-sys-color-surface)] border border-[var(--md-sys-color-outline)] text-[var(--md-sys-color-primary)] px-4 py-2.5 rounded-xl font-medium text-sm hover:bg-[var(--md-sys-color-primary-container)] transition-colors active:scale-[0.98]">Añadir fuente</button>
+                        <button onclick="addCustomRepo()" class="w-full bg-[var(--md-sys-color-surface)] border border-[var(--md-sys-color-outline)] text-[var(--md-sys-color-primary)] px-4 py-2.5 rounded-xl font-medium text-sm hover:bg-[var(--md-sys-color-primary-container)] transition-colors active:scale-[0.98]">Add Source</button>
                     </div>
                 </div>
 
                 <div class="pt-4 border-t border-[var(--md-sys-color-outline-variant)]">
-                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Tus Fuentes Instaladas</h3>
+                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Installed Sources</h3>
                     <div id="installedReposList" class="flex flex-col gap-2">
                     </div>
                 </div>
 
                 <div class="pt-2">
                     <button onclick="clearCache()" class="w-full py-3.5 rounded-full bg-[var(--md-sys-color-primary)] text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-colors hover:brightness-110 active:scale-[0.98] shadow-sm">
-                        <md-icon translate="no" class="notranslate" style="font-size: 20px;">sync</md-icon> Sincronizar catálogos
+                        <md-icon translate="no" class="notranslate" style="font-size: 20px;">sync</md-icon> Sync Catalogs
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- MODAL DE APLICACIÓN -->
+    <!-- APP MODAL -->
     <div id="appModal" class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center p-0 sm:p-6 transition-all duration-300">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
         <div class="bg-[var(--md-sys-color-surface)] w-full sm:max-w-[700px] sm:rounded-[24px] rounded-t-[24px] relative z-10 overflow-hidden flex flex-col h-[92vh] sm:h-[85vh] animate-slide-up shadow-2xl">
@@ -371,8 +330,8 @@
                 <div class="flex items-start gap-5 mb-6">
                     <div id="modalIcon" class="w-20 h-20 sm:w-28 sm:h-28 rounded-[20px] app-icon flex items-center justify-center text-4xl font-bold shrink-0 overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.1)] border border-black/5 dark:border-white/5"></div>
                     <div class="flex flex-col justify-center pt-1">
-                        <h2 id="modalTitle" class="text-[22px] font-medium text-[var(--md-sys-color-on-surface)] font-sans leading-tight mb-1">Nombre</h2>
-                        <p id="modalDeveloper" class="text-[var(--md-sys-color-primary)] font-medium text-[14px] mb-1">Desarrollador</p>
+                        <h2 id="modalTitle" class="text-[22px] font-medium text-[var(--md-sys-color-on-surface)] font-sans leading-tight mb-1">Name</h2>
+                        <p id="modalDeveloper" class="text-[var(--md-sys-color-primary)] font-medium text-[14px] mb-1">Developer</p>
                     </div>
                 </div>
 
@@ -382,7 +341,7 @@
                         <div class="font-medium text-[14px] text-[var(--md-sys-color-on-surface)] flex items-center gap-1">
                             <span id="modalVersion" class="transition-all duration-300">v1.0</span>
                         </div>
-                        <div class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">Versión</div>
+                        <div class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">Version</div>
                     </div>
                     <div class="w-px h-6 bg-[var(--md-sys-color-outline-variant)]"></div>
                     <div class="flex flex-col items-center">
@@ -394,16 +353,16 @@
                     <div class="w-px h-6 bg-[var(--md-sys-color-outline-variant)]"></div>
                     <div class="flex flex-col items-center">
                         <div class="font-medium text-[14px] text-[var(--md-sys-color-on-surface)]">
-                            <span id="modalLicense">Libre</span>
+                            <span id="modalLicense">Free</span>
                         </div>
-                        <div class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">Licencia</div>
+                        <div class="text-[12px] text-[var(--md-sys-color-on-surface-variant)] mt-0.5">License</div>
                     </div>
                 </div>
                 
                 <!-- Dynamic Install Buttons -->
                 <div id="modalDownloads" class="w-full mb-8 flex flex-col gap-3">
                     <div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2">
-                        <md-icon class="animate-spin text-lg">autorenew</md-icon> Buscando descargas...
+                        <md-icon class="animate-spin text-lg">autorenew</md-icon> Fetching downloads...
                     </div>
                 </div>
                 
@@ -413,22 +372,22 @@
                 <!-- About -->
                 <div class="mb-10">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] font-sans">Acerca de esta app</h3>
+                        <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] font-sans">About this app</h3>
                         <md-icon translate="no" class="text-[var(--md-sys-color-on-surface)] notranslate">arrow_forward</md-icon>
                     </div>
-                    <p id="modalDesc" class="text-[14px] leading-relaxed text-[var(--md-sys-color-on-surface-variant)] whitespace-pre-wrap break-words">Descripción...</p>
+                    <p id="modalDesc" class="text-[14px] leading-relaxed text-[var(--md-sys-color-on-surface-variant)] whitespace-pre-wrap break-words">Description...</p>
                 </div>
                 
                 <!-- Data Source info -->
                 <div class="mb-6 pt-6 border-t border-[var(--md-sys-color-outline-variant)]">
-                    <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] mb-4 font-sans">Detalles del repositorio</h3>
+                    <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] mb-4 font-sans">Repository details</h3>
                     <div class="flex flex-col gap-4 text-[14px] text-[var(--md-sys-color-on-surface-variant)]">
                         <div class="flex justify-between items-center">
-                            <span class="flex items-center gap-2"><md-icon class="notranslate text-[18px]">source</md-icon> Fuente</span>
+                            <span class="flex items-center gap-2"><md-icon class="notranslate text-[18px]">source</md-icon> Source</span>
                             <span id="modalRepoSource" class="font-medium text-[var(--md-sys-color-on-surface)] text-right truncate max-w-[200px]">Aethra</span>
                         </div>
                         <a id="modalRepoLink" href="#" target="_blank" class="hidden justify-between items-center text-[var(--md-sys-color-primary)] hover:underline mt-2">
-                            <span class="font-medium">Ver código fuente / repositorio</span>
+                            <span class="font-medium">View source code / repository</span>
                             <md-icon class="notranslate text-[18px]">open_in_new</md-icon>
                         </a>
                     </div>
@@ -437,46 +396,40 @@
         </div>
     </div>
 
-    <!-- Modal Ajustes -->
+    <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 transition-all duration-300">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeSettings()"></div>
         <div class="bg-[var(--md-sys-color-surface)] w-full max-w-sm rounded-[24px] relative z-10 overflow-hidden flex flex-col animate-slide-up shadow-xl">
             <div class="flex justify-between items-center p-6 pb-2">
-                <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">Ajustes</h2>
+                <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">Settings</h2>
                 <button onclick="closeSettings()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface-variant)]"><md-icon translate="no" class="notranslate">close</md-icon></button>
             </div>
             <div class="p-6 flex flex-col gap-6">
                 <div>
-                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Tema de la aplicación</h3>
+                    <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Application Theme</h3>
                     <div class="flex flex-col gap-2">
                         <button onclick="setTheme('light')" class="w-full py-3 px-4 rounded-xl border border-[var(--md-sys-color-outline-variant)] hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] font-medium text-sm flex items-center justify-start gap-3 transition-all">
-                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">light_mode</md-icon> Claro
+                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">light_mode</md-icon> Light
                         </button>
                         <button onclick="setTheme('dark')" class="w-full py-3 px-4 rounded-xl border border-[var(--md-sys-color-outline-variant)] hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] font-medium text-sm flex items-center justify-start gap-3 transition-all">
-                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">dark_mode</md-icon> Oscuro
+                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">dark_mode</md-icon> Dark
                         </button>
                     </div>
                 </div>
                 <div class="pt-4 border-t border-[var(--md-sys-color-outline-variant)] text-center">
-                    <p class="text-xs text-[var(--md-sys-color-on-surface-variant)]">Aethra Store © 2026 Multiplataforma</p>
+                    <p class="text-xs text-[var(--md-sys-color-on-surface-variant)]">Aethra Store © 2026 Cross-Platform</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'es', includedLanguages: 'es,en,fr,de,it,pt,ru,zh-CN,ja,ko', autoDisplay: false
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
     <script>
         const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/Juanoto2012/Aura-Repo/main/apps.json';
         const ORION_RAW_URL = 'https://raw.githubusercontent.com/RookieEnough/Orion-Data/main/apps.json';
-        const FDROID_EXAMPLE = 'https://f-droid.org/repo/index-v1.json';
+        
+        // --- NEW REPOSITORIES INSTEAD OF OPENAPK ---
+        const FDROID_URL = 'https://f-droid.org/repo/index-v1.json'; 
+        const IZZY_URL = 'https://apt.izzysoft.de/fdroid/repo/index-v1.json';
         
         let allApps = []; 
         let currentRenderList = [];
@@ -484,11 +437,13 @@
         const RENDER_CHUNK = 50; 
         
         // ==========================================
-        // GESTIÓN DE FUENTES / REPOSITORIOS
+        // REPOSITORY MANAGEMENT
         // ==========================================
         const defaultReposConfig = [
-            { name: "Aethra Oficial", url: GITHUB_RAW_URL, isDefault: true },
-            { name: "Orion Data", url: ORION_RAW_URL, isDefault: true }
+            { name: "Aethra Official", url: GITHUB_RAW_URL, isDefault: true },
+            { name: "Orion Data", url: ORION_RAW_URL, isDefault: true },
+            { name: "F-Droid", url: FDROID_URL, isDefault: true },
+            { name: "IzzyOnDroid", url: IZZY_URL, isDefault: true } 
         ];
 
         let myRepos = JSON.parse(localStorage.getItem('aethra_sources') || '[]');
@@ -543,7 +498,7 @@
         function addCustomRepo() {
             const url = document.getElementById('customRepoUrl').value.trim();
             if(url) {
-                let name = "Fuente Externa";
+                let name = "External Source";
                 if(url.includes('f-droid.org')) name = "F-Droid";
                 if(url.includes('izzysoft.de')) name = "IzzyOnDroid";
                 addRepoLogic(name, url);
@@ -552,36 +507,36 @@
         }
 
         function addRepoLogic(name, url) {
-            if(!url.startsWith('http')) return showToast('URL inválida. Debe empezar con http:// o https://');
-            if(myRepos.some(r => r.url === url)) return showToast('Esta fuente ya está instalada');
+            if(!url.startsWith('http')) return showToast('Invalid URL. Must start with http:// or https://');
+            if(myRepos.some(r => r.url === url)) return showToast('This source is already installed');
             
             myRepos.push({ name, url, isDefault: false });
             localStorage.setItem('aethra_sources', JSON.stringify(myRepos));
             renderInstalledRepos();
-            showToast(`${name} añadida. Aplica los cambios.`);
+            showToast(`${name} added. Apply changes to load.`);
         }
 
         function removeRepo(index) {
             myRepos.splice(index, 1);
             localStorage.setItem('aethra_sources', JSON.stringify(myRepos));
             renderInstalledRepos();
-            showToast('Fuente eliminada.');
+            showToast('Source removed.');
         }
 
         // ==========================================
-        // PARSER MULTIPLATAFORMA & F-DROID CORE
+        // MULTIPLATFORM PARSER & METADATA HANDLING
         // ==========================================
         async function fetchWithCorsProxy(url) {
             const fetchUrl = url + (url.includes('?') ? '&' : '?') + `t=${new Date().getTime()}`;
             try {
                 const res = await fetch(fetchUrl, { cache: 'no-store' });
-                if (!res.ok) throw new Error('Fetch Directo Falló');
+                if (!res.ok) throw new Error('Direct Fetch Failed');
                 return await res.json();
             } catch (e) {
-                console.warn(`Intento directo a ${url} falló. Intentando Proxy...`);
+                console.warn(`Direct attempt to ${url} failed. Trying Proxy...`);
                 const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(fetchUrl)}`;
                 const proxyRes = await fetch(proxyUrl, { cache: 'no-store' });
-                if (!proxyRes.ok) throw new Error('Proxy Falló');
+                if (!proxyRes.ok) throw new Error('Proxy Failed');
                 return await proxyRes.json();
             }
         }
@@ -620,24 +575,25 @@
                     return {
                         id: app.packageName,
                         name: app.name || app.packageName,
-                        developer: app.authorName || sourceName,
+                        developer: app.authorName || app.developerName || sourceName,
                         short_desc: app.summary || "",
                         description: app.description || app.summary || "",
                         icon_url: app.icon ? `${baseUrl}/icons/${app.icon}` : null,
                         version: latest ? latest.versionName : '1.0',
                         size: latest && latest.size ? latest.size : null,
-                        download_url: latest ? `${baseUrl}/${latest.apkName}` : null,
-                        timestamp: app.added || new Date().toISOString(),
+                        // This properly builds absolute URLs starting with http/https for F-Droid and IzzyOnDroid
+                        download_url: latest ? `${baseUrl}/${latest.apkName}` : null, 
+                        timestamp: app.added || app.lastUpdated || new Date().toISOString(),
                         license: app.license || 'Open Source',
                         category: app.categories ? app.categories[0] : 'Apps',
                         repo_source: sourceName,
-                        repo_url: app.sourceCode || app.webSite || baseUrl
+                        repo_url: app.sourceCode || app.issueTracker || app.webSite || baseUrl
                     };
                 });
                 return appsList;
             }
 
-            // Generic JSON Parsing
+            // Generic JSON Parsing (Custom Stores)
             if (Array.isArray(data)) appsList = data;
             else if (data && data.packages && Array.isArray(data.packages)) appsList = data.packages;
             else if (data && data.apps && Array.isArray(data.apps)) appsList = data.apps;
@@ -658,23 +614,30 @@
                 const pkgName = app.packageName || app.package_name || app.id || app.pkgName || (app.name ? app.name.replace(/\s+/g, '-').toLowerCase() : null);
                 if (!pkgName) return null;
 
+                // Better Localization Handling: Priority to English
                 const getLocalizedValue = (field) => {
                     if (!field) return '';
                     if (typeof field === 'string') return field;
-                    if (typeof field === 'object') return field['es-ES'] || field['es'] || field['en-US'] || field['en'] || Object.values(field)[0] || '';
+                    if (typeof field === 'object') {
+                        return field['en-US'] || field['en'] || field['es-ES'] || field['es'] || Object.values(field)[0] || '';
+                    }
                     return '';
                 };
 
-                const rawName = app.name || pkgName;
+                const rawName = app.name || app.title || pkgName;
                 const name = getLocalizedValue(rawName);
                 
                 const rawDesc = app.description || app.summary || app.short_desc || '';
                 const description = getLocalizedValue(rawDesc);
-                const cleanDesc = description.replace(/<[^>]*>?/gm, '');
+                
+                // Safer HTML stripping
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = description;
+                const cleanDesc = tempDiv.textContent || tempDiv.innerText || "";
 
                 if (forbiddenRegex.test(name) || forbiddenRegex.test(cleanDesc)) return null;
 
-                let iconPath = app.icon_url || app.icon || app.iconUrl;
+                let iconPath = app.icon_url || app.icon || app.iconUrl || app.logo;
                 if (iconPath && !iconPath.startsWith('http') && !iconPath.startsWith('data:')) {
                     if (typeof iconPath === 'string') iconPath = `${baseUrlDir}/${iconPath.startsWith('/') ? iconPath.substring(1) : iconPath}`;
                     else if (typeof iconPath === 'object' && iconPath.url) iconPath = iconPath.url.startsWith('http') ? iconPath.url : `${baseUrlDir}/${iconPath.url.replace(/^\//, '')}`;
@@ -686,10 +649,10 @@
                 if (!downloadUrl && app.packages && app.packages.length > 0) downloadUrl = app.packages[0].apkUrl || app.packages[0].url;
                 if (downloadUrl && !downloadUrl.startsWith('http')) downloadUrl = `${baseUrlDir}/${downloadUrl.startsWith('/') ? downloadUrl.substring(1) : downloadUrl}`;
 
-                let screenshots = app.screenshots || app.phoneScreenshots || [];
+                let screenshots = app.screenshots || app.phoneScreenshots || app.images || [];
                 if (!Array.isArray(screenshots)) screenshots = [];
                 screenshots = screenshots.map(s => {
-                    let strUrl = typeof s === 'string' ? s : (s.url || '');
+                    let strUrl = typeof s === 'string' ? s : (s.url || s.src || '');
                     if (!strUrl) return null;
                     if (strUrl.startsWith('http') || strUrl.startsWith('data:')) return strUrl;
                     return `${baseUrlDir}/${strUrl.startsWith('/') ? strUrl.substring(1) : strUrl}`;
@@ -702,16 +665,15 @@
                 let repoUrlFinal = app.repo_url || app.repoUrl;
                 if (repoUrlFinal === "#" || !repoUrlFinal) repoUrlFinal = null;
                 if (!repoUrlFinal && app.githubRepo && app.githubRepo !== "#") repoUrlFinal = `https://github.com/${app.githubRepo}`;
-                if (!repoUrlFinal) repoUrlFinal = app.sourceCode || app.webSite || app.website || `${baseUrlDir}/packages/${pkgName}/`;
+                if (!repoUrlFinal) repoUrlFinal = app.sourceCode || app.issueTracker || app.webSite || app.website || `${baseUrlDir}/packages/${pkgName}/`;
 
                 const gitInfo = getGitProviderInfo(repoUrlFinal);
-
                 if (!downloadUrl) downloadUrl = app.repoUrl && app.repoUrl !== "#" ? app.repoUrl : (gitInfo ? repoUrlFinal : `${baseUrlDir}/packages/${pkgName}/`);
 
                 return {
                     id: pkgName,
                     name: name,
-                    developer: app.developer || app.author || getLocalizedValue(app.authorName) || sourceName,
+                    developer: app.developer || app.author || getLocalizedValue(app.authorName) || getLocalizedValue(app.developerName) || sourceName,
                     short_desc: app.short_desc || cleanDesc.substring(0, 120),
                     description: cleanDesc,
                     icon_url: iconPath,
@@ -720,9 +682,9 @@
                     size: formattedSize,
                     download_url: downloadUrl,
                     git_info: gitInfo,
-                    license: app.license || 'Libre',
+                    license: app.license || 'Open Source',
                     timestamp: app.timestamp || app.lastUpdated || app.added || new Date().toISOString(),
-                    category: app.category || (Array.isArray(app.categories) && app.categories.length > 0 ? app.categories[0] : 'Aplicaciones'),
+                    category: app.category || (Array.isArray(app.categories) && app.categories.length > 0 ? app.categories[0] : 'Apps'),
                     screenshots: screenshots,
                     repo_source: sourceName,
                     repo_url: repoUrlFinal
@@ -746,11 +708,11 @@
                     if (result.status === 'fulfilled' && result.value) {
                         allFetched = allFetched.concat(result.value);
                     } else {
-                        console.warn("Fallo al cargar una fuente particular:", result.reason);
+                        console.warn("Failed to load a specific source:", result.reason);
                     }
                 }
 
-                if (allFetched.length === 0) throw new Error('No se encontraron aplicaciones en los repositorios configurados.');
+                if (allFetched.length === 0) throw new Error('No applications found in the configured repositories.');
                 
                 const uniqueAppsMap = new Map();
                 allFetched.forEach(app => {
@@ -777,10 +739,10 @@
                     <div class="bg-[var(--md-sys-color-surface-container)] inline-flex p-6 rounded-full mb-4 shadow-sm">
                         <md-icon translate="no" class="text-5xl text-[var(--md-sys-color-on-surface-variant)] notranslate">cloud_off</md-icon>
                     </div>
-                    <h3 class="text-[20px] font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Sin conexión</h3>
+                    <h3 class="text-[20px] font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Offline</h3>
                     <p class="max-w-md mx-auto text-[14px] text-[var(--md-sys-color-on-surface-variant)] mb-6">${error.message}</p>
-                    <button onclick="window.location.reload()" class="bg-[var(--md-sys-color-primary)] text-white px-6 py-2.5 rounded-full font-medium text-[14px] shadow-sm active:scale-[0.98] transition-transform">Reintentar</button>
-                    <button onclick="openSourcesModal()" class="block mx-auto mt-4 text-[var(--md-sys-color-primary)] font-medium text-[14px]">Revisar Fuentes</button>
+                    <button onclick="window.location.reload()" class="bg-[var(--md-sys-color-primary)] text-white px-6 py-2.5 rounded-full font-medium text-[14px] shadow-sm active:scale-[0.98] transition-transform">Retry</button>
+                    <button onclick="openSourcesModal()" class="block mx-auto mt-4 text-[var(--md-sys-color-primary)] font-medium text-[14px]">Check Sources</button>
                 `;
                 emptyState.classList.remove('hidden');
                 emptyState.classList.add('flex', 'flex-col', 'items-center', 'justify-center');
@@ -788,7 +750,7 @@
         }
 
         // ==========================================
-        // LAZY LOADING Y RENDERIZADO GRID 
+        // LAZY LOADING & GRID RENDERING
         // ==========================================
         function renderGrid(appsToRender, containerId) {
             currentRenderList = appsToRender;
@@ -834,7 +796,7 @@
         function loadMoreApps() { renderGridChunk('appsGrid'); }
 
         // ==========================================
-        // UI TIENDA Y CATEGORIAS
+        // UI STORE & CATEGORIES
         // ==========================================
         function renderStoreUI(apps) {
             if (apps.length === 0) return;
@@ -846,18 +808,18 @@
         }
 
         const CATEGORIES = [
-            { id: 'games', name: 'Juegos', icon: 'sports_esports' },
-            { id: 'system', name: 'Sistema', icon: 'memory' },
-            { id: 'utilities', name: 'Utilidades', icon: 'build' },
+            { id: 'games', name: 'Games', icon: 'sports_esports' },
+            { id: 'system', name: 'System', icon: 'memory' },
+            { id: 'utilities', name: 'Utilities', icon: 'build' },
             { id: 'internet', name: 'Internet', icon: 'public' },
-            { id: 'media', name: 'Multimedia', icon: 'play_circle' },
-            { id: 'development', name: 'Desarrollo', icon: 'code' },
-            { id: 'navigation', name: 'Navegación', icon: 'explore' },
-            { id: 'health', name: 'Salud', icon: 'heart_plus' },
-            { id: 'education', name: 'Educación', icon: 'school' },
-            { id: 'seguridad', name: 'Seguridad', icon: 'security' },
-            { id: 'customization', name: 'Personalización', icon: 'palette' },
-            { id: 'conectividad', name: 'Conectividad', icon: 'wifi' }
+            { id: 'media', name: 'Media', icon: 'play_circle' },
+            { id: 'development', name: 'Development', icon: 'code' },
+            { id: 'navigation', name: 'Navigation', icon: 'explore' },
+            { id: 'health', name: 'Health', icon: 'heart_plus' },
+            { id: 'education', name: 'Education', icon: 'school' },
+            { id: 'security', name: 'Security', icon: 'security' },
+            { id: 'customization', name: 'Customization', icon: 'palette' },
+            { id: 'connectivity', name: 'Connectivity', icon: 'wifi' }
         ];
 
         function updateMobileNav(activeId) {
@@ -911,7 +873,7 @@
             if (tabId === 'home') {
                 document.getElementById('bannersSection')?.classList.remove('hidden');
                 document.getElementById('carouselSection')?.classList.remove('hidden');
-                document.getElementById('gridSectionTitle').textContent = "Recomendado para ti";
+                document.getElementById('gridSectionTitle').textContent = "Recommended for you";
                 
                 let featuredApps = allApps.filter(a => a.featured || a.editors_choice);
                 if (featuredApps.length === 0) featuredApps = allApps.slice(0, 5);
@@ -927,7 +889,7 @@
                 renderCategoriesView();
 
             } else if (tabId === 'novedades') {
-                document.getElementById('gridSectionTitle').textContent = "Nuevas versiones y actualizaciones";
+                document.getElementById('gridSectionTitle').textContent = "New releases & updates";
                 renderGrid(allApps, 'appsGrid');
             }
         }
@@ -964,7 +926,7 @@
             
             if (catApps.length > 0) renderGrid(catApps, 'appsGrid');
             else {
-                document.getElementById('appsGrid').innerHTML = `<div class="col-span-full text-center py-16 text-[var(--md-sys-color-on-surface-variant)]"><p class="text-[14px]">No se encontraron aplicaciones en esta categoría.</p></div>`;
+                document.getElementById('appsGrid').innerHTML = `<div class="col-span-full text-center py-16 text-[var(--md-sys-color-on-surface-variant)]"><p class="text-[14px]">No applications found in this category.</p></div>`;
                 document.getElementById('loadMoreContainer').classList.add('hidden');
             }
         }
@@ -995,8 +957,9 @@
         }
 
         function renderCarousel(appsToRender, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
+            const container = document.getElementById('carouselSection'); // Fix fallback to ID
+            const carouselElement = document.getElementById(containerId);
+            carouselElement.innerHTML = '';
             appsToRender.forEach(app => {
                 const iconHtml = app.icon_url ? `<img src="${app.icon_url}" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span class="text-3xl font-bold text-[var(--md-sys-color-on-surface)] hidden">${app.iconText}</span>` : `<span class="text-3xl font-bold text-[var(--md-sys-color-on-surface)]">${app.iconText}</span>`;
                 const card = document.createElement('div');
@@ -1009,7 +972,7 @@
                         <p class="text-[11px] text-[var(--md-sys-color-on-surface-variant)] truncate mt-0.5">${app.developer}</p>
                     </div>
                 `;
-                container.appendChild(card);
+                carouselElement.appendChild(card);
             });
         }
 
@@ -1042,7 +1005,7 @@
                 document.getElementById('carouselSection')?.classList.add('hidden');
                 document.getElementById('categoriesSection')?.classList.add('hidden');
                 document.getElementById('gridTitleContainer')?.classList.remove('hidden');
-                document.getElementById('gridSectionTitle').textContent = `Resultados para "${term}"`;
+                document.getElementById('gridSectionTitle').textContent = `Results for "${term}"`;
 
                 renderGrid(filtered, 'appsGrid');
             } else {
@@ -1095,12 +1058,12 @@
             updateThemeColor(); closeSettings();
         }
 
-        function clearCache() { showToast('Sincronizando...'); setTimeout(() => window.location.reload(true), 800); }
+        function clearCache() { showToast('Syncing...'); setTimeout(() => window.location.reload(true), 800); }
 
         const modal = document.getElementById('appModal');
 
         // ==========================================
-        // OBTENCIÓN DINÁMICA DE RELEASES Y VERSIONES
+        // DYNAMIC RELEASE & VERSION FETCHING
         // ==========================================
         async function fetchGitRelease(app) {
             if(!app.git_info) return null;
@@ -1140,7 +1103,7 @@
             assets.forEach(asset => {
                 let name = (asset.name || asset.title || '').toLowerCase();
                 let sizeBytes = asset.size ? asset.size : null;
-                let sizeTxt = sizeBytes ? (sizeBytes / (1024 * 1024)).toFixed(1) + ' MB' : 'Desconocido';
+                let sizeTxt = sizeBytes ? (sizeBytes / (1024 * 1024)).toFixed(1) + ' MB' : 'Unknown';
                 let url = asset.browser_download_url || asset.url;
                 
                 let item = { name: asset.name || asset.title, url: url, size: sizeTxt };
@@ -1167,7 +1130,7 @@
                         const btn = document.createElement('button');
                         btn.className = "platform-btn group w-full text-left animate-fade-in";
                         btn.onclick = () => {
-                            showToast(`Iniciando descarga: ${asset.name}`);
+                            showToast(`Starting download: ${asset.name}`);
                             const a = document.createElement('a'); a.href = asset.url; a.target = '_blank';
                             document.body.appendChild(a); a.click(); document.body.removeChild(a);
                         };
@@ -1190,26 +1153,27 @@
             };
 
             if (platforms) {
-                addPlatformGroup(platforms.android, 'android', 'Descargar para Android', 'text-green-600');
-                addPlatformGroup(platforms.windows, 'window', 'Descargar para Windows', 'text-blue-500');
-                addPlatformGroup(platforms.linux, 'terminal', 'Descargar para Linux', 'text-orange-500');
-                addPlatformGroup(platforms.macos, 'laptop_mac', 'Descargar para Mac', 'text-gray-600 dark:text-gray-300');
+                addPlatformGroup(platforms.android, 'android', 'Download for Android', 'text-green-600');
+                addPlatformGroup(platforms.windows, 'window', 'Download for Windows', 'text-blue-500');
+                addPlatformGroup(platforms.linux, 'terminal', 'Download for Linux', 'text-orange-500');
+                addPlatformGroup(platforms.macos, 'laptop_mac', 'Download for Mac', 'text-gray-600 dark:text-gray-300');
             }
 
+            // Fallback for direct APK download from F-Droid, Izzy, or Github fallback url
             if (totalOptions === 0 && app.download_url) {
-                let finalSize = app.size ? (typeof app.size === 'number' ? (app.size / (1024*1024)).toFixed(1)+' MB' : app.size) : 'Tamaño desconocido';
+                let finalSize = app.size ? (typeof app.size === 'number' ? (app.size / (1024*1024)).toFixed(1)+' MB' : app.size) : 'Unknown Size';
                 
                 const btn = document.createElement('button');
                 btn.className = "w-full bg-[var(--md-sys-color-primary)] text-white rounded-full py-3 font-medium text-[15px] transition-all hover:shadow-md active:scale-[0.99] flex justify-center items-center gap-2 animate-fade-in";
                 btn.onclick = () => {
-                    showToast('Iniciando descarga...');
+                    showToast('Starting download...');
                     const a = document.createElement('a'); a.href = app.download_url; a.target = '_blank';
                     document.body.appendChild(a); a.click(); document.body.removeChild(a);
                 };
-                btn.innerHTML = `Descargar APK <span class="text-white/80 font-normal text-sm">(${finalSize})</span>`;
+                btn.innerHTML = `Download APK <span class="text-white/80 font-normal text-sm">(${finalSize})</span>`;
                 container.appendChild(btn);
             } else if (totalOptions === 0) {
-                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2 animate-fade-in">No se encontraron archivos binarios disponibles. Revisa el código fuente.</div>`;
+                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2 animate-fade-in">No binary files found. Check the source code.</div>`;
             }
         }
 
@@ -1226,11 +1190,10 @@
             } else { modalIconDiv.innerHTML = `<span class="text-5xl font-bold text-[var(--md-sys-color-primary)]">${app.iconText}</span>`; }
 
             document.getElementById('modalDesc').textContent = app.description;
-            document.getElementById('modalLicense').textContent = app.license || 'Libre / Open Source';
+            document.getElementById('modalLicense').textContent = app.license || 'Free / Open Source';
             
-            // Textos por defecto mientras carga
             const defaultVersion = app.version ? "v" + app.version.replace(/^v/i, '') : '1.0';
-            const defaultDate = app.timestamp ? new Date(app.timestamp).toLocaleDateString('es-ES', {year:'numeric', month:'short', day:'numeric'}) : "Desconocido";
+            const defaultDate = app.timestamp ? new Date(app.timestamp).toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'}) : "Unknown";
             
             const versionEl = document.getElementById('modalVersion');
             const dateEl = document.getElementById('modalDate');
@@ -1239,7 +1202,7 @@
             dateEl.textContent = defaultDate;
 
             const repoSourceBadge = document.getElementById('modalRepoSource');
-            if (repoSourceBadge) repoSourceBadge.textContent = app.repo_source || "Desconocido";
+            if (repoSourceBadge) repoSourceBadge.textContent = app.repo_source || "Unknown";
 
             const repoLink = document.getElementById('modalRepoLink');
             if (app.repo_url && app.repo_url !== "#") { repoLink.href = app.repo_url; repoLink.classList.remove('hidden'); repoLink.classList.add('flex'); } 
@@ -1257,32 +1220,26 @@
             } else { screenshotsContainer.classList.add('hidden'); }
 
             const container = document.getElementById('modalDownloads');
-            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Obteniendo versión y descargas...</div>`;
+            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Fetching versions and downloads...</div>`;
             
-            // Mostramos el modal de inmediato
             modal.classList.remove('hidden'); modal.classList.add('flex');
             document.body.style.overflow = 'hidden'; 
 
-            // Carga asíncrona de la Release y la Versión
             if (app.git_info) {
                 const releaseData = await fetchGitRelease(app);
                 
-                // Comprobamos que el usuario no cerró ni cambió de app mientras cargaba
                 if(document.getElementById('modalTitle').textContent === app.name) {
                     if (releaseData) {
-                        // Actualizar versión dinámica
                         if (releaseData.version) {
                             versionEl.innerHTML = `<span class="animate-fade-in">v${releaseData.version.replace(/^v/i, '')}</span>`;
                         }
-                        // Actualizar fecha dinámica
                         if (releaseData.date) {
                             const dateObj = new Date(releaseData.date);
-                            dateEl.innerHTML = `<span class="animate-fade-in">${dateObj.toLocaleDateString('es-ES', {year:'numeric', month:'short', day:'numeric'})}</span>`;
+                            dateEl.innerHTML = `<span class="animate-fade-in">${dateObj.toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'})}</span>`;
                         }
                         
                         buildDownloadUI(app, releaseData.platforms);
                     } else {
-                        // Fallback si falla la API
                         buildDownloadUI(app, null); 
                     }
                 }
@@ -1295,13 +1252,13 @@
                 shareBtn.onclick = async () => {
                     const shareUrl = window.location.origin + window.location.pathname + '?appid=' + app.id;
                     try {
-                        if (navigator.share) await navigator.share({ title: `Aethra Store - ${app.name}`, text: `Mira esta increíble aplicación libre: ${app.name}`, url: shareUrl });
+                        if (navigator.share) await navigator.share({ title: `Aethra Store - ${app.name}`, text: `Check out this amazing open-source app: ${app.name}`, url: shareUrl });
                         else {
                             const el = document.createElement('textarea'); el.value = shareUrl;
                             document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el);
-                            showToast('Enlace copiado al portapapeles');
+                            showToast('Link copied to clipboard');
                         }
-                    } catch (e) { console.log('Error compartiendo:', e); }
+                    } catch (e) { console.log('Error sharing:', e); }
                 };
             }
         }
@@ -1311,20 +1268,6 @@
         window.addEventListener('DOMContentLoaded', () => {
             if ('caches' in window) caches.keys().then(names => { for (let name of names) caches.delete(name); });
             fetchRepository();
-        });
-
-        function changeLanguage(langCode) {
-            const googleSelect = document.querySelector('.goog-te-combo');
-            if (googleSelect) { googleSelect.value = langCode; googleSelect.dispatchEvent(new Event('change', { bubbles: true })); } 
-            else { document.cookie = `googtrans=/es/${langCode}; path=/;`; document.cookie = `googtrans=/es/${langCode}; path=/; domain=${location.hostname};`; location.reload(); }
-            localStorage.setItem('aethra_lang_detected', 'true'); 
-            document.querySelectorAll('.custom-lang-selector').forEach(select => { select.value = langCode; });
-        }
-
-        window.addEventListener('load', () => {
-            const match = document.cookie.match(/googtrans=\/es\/([^;]+)/);
-            const currentLang = match ? match[1] : 'es';
-            document.querySelectorAll('.custom-lang-selector').forEach(select => { select.value = currentLang; });
         });
     </script>
 </body>
