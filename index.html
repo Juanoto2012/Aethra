@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -170,6 +171,7 @@
 
     <div id="toast">Notification</div>
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 md3-nav top-0 h-[76px] flex items-center shadow-sm">
         <div class="max-w-[1400px] mx-auto px-4 sm:px-6 w-full flex items-center justify-between gap-4">
             <a href="index.html" class="flex items-center gap-3 shrink-0 p-2 hover:bg-[var(--md-sys-color-surface-container)] rounded-xl transition-colors">
@@ -179,13 +181,13 @@
 
             <div class="flex-grow max-w-2xl relative hidden md:block mx-6">
                 <md-icon translate="no" class="absolute left-4 top-3.5 text-[var(--md-sys-color-on-surface-variant)] z-10 notranslate">search</md-icon>
-                <input type="text" id="searchInputDesktop" placeholder="Search applications..." class="search-input font-medium text-[15px] relative z-0" autocomplete="off">
+                <input type="text" id="searchInputDesktop" placeholder="Find your next open-source obsession..." class="search-input font-medium text-[15px] relative z-0" autocomplete="off">
                 <div id="suggestionsDesktop" class="absolute top-[110%] left-0 right-0 bg-[var(--md-sys-color-surface-container-low)] rounded-2xl shadow-lg z-50 hidden flex-col overflow-hidden py-2 max-h-[60vh] overflow-y-auto no-scrollbar border border-[var(--md-sys-color-outline-variant)]"></div>
             </div>
 
             <div class="flex items-center gap-1 sm:gap-3 shrink-0">
                 <button onclick="openSourcesModal()" class="relative overflow-hidden hidden sm:flex items-center gap-2 text-[var(--md-sys-color-primary)] px-3 py-2 rounded-xl font-medium text-[15px] hover:bg-[var(--md-sys-color-surface-container)] transition-all" title="Manage Repositories">
-                    <md-icon translate="no" class="notranslate" style="font-size: 22px;">source</md-icon> Sources
+                    <md-icon translate="no" class="notranslate" style="font-size: 22px;">source</md-icon> Repositories
                 </button>
 
                 <button onclick="openSettings()" class="flex w-10 h-10 items-center justify-center rounded-full bg-[var(--md-sys-color-primary)] text-white hover:opacity-90 transition-opacity shadow-sm font-bold text-lg" title="Settings">
@@ -198,17 +200,18 @@
     <div id="mobileSearch" class="fixed top-[76px] left-0 w-full bg-[var(--md-sys-color-surface)] z-40 p-4 border-b border-[var(--md-sys-color-outline-variant)] hidden md:hidden shadow-sm animate-slide-up">
         <div class="relative w-full">
             <md-icon translate="no" class="absolute left-4 top-3.5 text-[var(--md-sys-color-on-surface-variant)] z-10 notranslate">search</md-icon>
-            <input type="text" id="searchInputMobile" placeholder="Search applications..." class="search-input font-medium text-[15px] relative z-0 py-3" autocomplete="off">
+            <input type="text" id="searchInputMobile" placeholder="Find your next open-source obsession..." class="search-input font-medium text-[15px] relative z-0 py-3" autocomplete="off">
             <div id="suggestionsMobile" class="absolute top-[110%] left-0 right-0 bg-[var(--md-sys-color-surface)] rounded-2xl shadow-lg z-50 hidden flex-col overflow-y-auto max-h-[50vh] py-2 no-scrollbar border border-[var(--md-sys-color-outline-variant)]"></div>
         </div>
     </div>
 
+    <!-- Main Content -->
     <main class="flex-grow w-full pt-[76px] relative z-10 pb-28 bg-[var(--md-sys-color-surface)]">
         <div id="loader" class="flex flex-col items-center justify-center py-40 text-[var(--md-sys-color-primary)]">
             <div class="relative w-12 h-12 mb-4 flex items-center justify-center">
                 <md-icon translate="no" class="animate-spin text-4xl notranslate">autorenew</md-icon>
             </div>
-            <p class="font-medium font-sans text-lg text-[var(--md-sys-color-on-surface)]">Loading repositories...</p>
+            <p class="font-medium font-sans text-lg text-[var(--md-sys-color-on-surface)]">Waking up the server hamsters...</p>
         </div>
 
         <div id="emptyState" class="hidden text-center py-40 text-[var(--md-sys-color-on-surface-variant)] px-4"></div>
@@ -222,7 +225,7 @@
                 <div class="flex gap-4 overflow-x-auto no-scrollbar pb-1">
                     <button class="filter-btn active shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-primary)] border-b-2 border-[var(--md-sys-color-primary)] transition-colors" data-tab="home" onclick="switchTab('home')">For You</button>
                     <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="categorias" onclick="switchTab('categorias')">Categories</button>
-                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="novedades" onclick="switchTab('novedades')">New Releases</button>
+                    <button class="filter-btn shrink-0 px-1 py-2 font-medium text-[14px] text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] border-b-2 border-transparent transition-colors" data-tab="novedades" onclick="switchTab('novedades')">Fresh Out of the Oven</button>
                 </div>
             </section>
 
@@ -240,14 +243,14 @@
 
             <section class="px-4 sm:px-6 mb-16 animate-fade-in relative">
                 <div id="gridTitleContainer" class="flex justify-between items-center mb-4">
-                    <h2 id="gridSectionTitle" class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Recommended for you</h2>
+                    <h2 id="gridSectionTitle" class="text-[18px] font-medium text-[var(--md-sys-color-on-surface)] font-sans">Stuff you might actually like</h2>
                 </div>
                 
                 <div id="appsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"></div>
                 
                 <div id="loadMoreContainer" class="mt-6 text-center hidden">
                     <button onclick="loadMoreApps()" class="text-[var(--md-sys-color-primary)] px-6 py-2 rounded-full font-medium text-[14px] hover:bg-[var(--md-sys-color-primary-container)] transition-colors inline-flex items-center gap-2">
-                        Show More
+                        Gimme More
                     </button>
                 </div>
             </section>
@@ -287,7 +290,7 @@
                     <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Add repository URL manually</h3>
                     <div class="flex flex-col gap-3">
                         <input type="url" id="customRepoUrl" placeholder="https://f-droid.org/repo/index-v1.json" class="w-full bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] border border-[var(--md-sys-color-outline-variant)] rounded-xl px-4 py-3 text-[14px] focus:outline-none focus:border-[var(--md-sys-color-primary)] focus:ring-1 focus:ring-[var(--md-sys-color-primary)] transition-all">
-                        <button onclick="addCustomRepo()" class="w-full bg-[var(--md-sys-color-surface)] border border-[var(--md-sys-color-outline)] text-[var(--md-sys-color-primary)] px-4 py-2.5 rounded-xl font-medium text-sm hover:bg-[var(--md-sys-color-primary-container)] transition-colors active:scale-[0.98]">Add Source</button>
+                        <button onclick="addCustomRepo()" class="w-full bg-[var(--md-sys-color-surface)] border border-[var(--md-sys-color-outline)] text-[var(--md-sys-color-primary)] px-4 py-2.5 rounded-xl font-medium text-sm hover:bg-[var(--md-sys-color-primary-container)] transition-colors active:scale-[0.98]">Inject Source</button>
                     </div>
                 </div>
 
@@ -299,7 +302,7 @@
 
                 <div class="pt-2">
                     <button onclick="clearCache()" class="w-full py-3.5 rounded-full bg-[var(--md-sys-color-primary)] text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-colors hover:brightness-110 active:scale-[0.98] shadow-sm">
-                        <md-icon translate="no" class="notranslate" style="font-size: 20px;">sync</md-icon> Sync Catalogs
+                        <md-icon translate="no" class="notranslate" style="font-size: 20px;">sync</md-icon> Feed the Hamsters (Sync)
                     </button>
                 </div>
             </div>
@@ -362,7 +365,7 @@
                 <!-- Dynamic Install Buttons -->
                 <div id="modalDownloads" class="w-full mb-8 flex flex-col gap-3">
                     <div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2">
-                        <md-icon class="animate-spin text-lg">autorenew</md-icon> Fetching downloads...
+                        <md-icon class="animate-spin text-lg">autorenew</md-icon> Digging through repos for versions...
                     </div>
                 </div>
                 
@@ -372,7 +375,7 @@
                 <!-- About -->
                 <div class="mb-10">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] font-sans">About this app</h3>
+                        <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] font-sans">What does this thing even do?</h3>
                         <md-icon translate="no" class="text-[var(--md-sys-color-on-surface)] notranslate">arrow_forward</md-icon>
                     </div>
                     <p id="modalDesc" class="text-[14px] leading-relaxed text-[var(--md-sys-color-on-surface-variant)] whitespace-pre-wrap break-words">Description...</p>
@@ -380,7 +383,7 @@
                 
                 <!-- Data Source info -->
                 <div class="mb-6 pt-6 border-t border-[var(--md-sys-color-outline-variant)]">
-                    <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] mb-4 font-sans">Repository details</h3>
+                    <h3 class="font-medium text-[16px] text-[var(--md-sys-color-on-surface)] mb-4 font-sans">Nerd stats (Repository details)</h3>
                     <div class="flex flex-col gap-4 text-[14px] text-[var(--md-sys-color-on-surface-variant)]">
                         <div class="flex justify-between items-center">
                             <span class="flex items-center gap-2"><md-icon class="notranslate text-[18px]">source</md-icon> Source</span>
@@ -396,12 +399,50 @@
         </div>
     </div>
 
+    <!-- Android 16 Bypass Warning Modal -->
+    <div id="a16Modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-4 transition-all duration-300">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeA16Modal()"></div>
+        <div class="bg-[var(--md-sys-color-surface)] w-full max-w-md rounded-[24px] relative z-10 p-6 flex flex-col gap-5 shadow-2xl border border-orange-500/20">
+            <div class="flex items-center gap-3 text-orange-500">
+                <md-icon translate="no" class="text-3xl">gpp_bad</md-icon>
+                <h2 class="text-xl font-bold text-[var(--md-sys-color-on-surface)] font-sans">Android 16 Blockade</h2>
+            </div>
+            
+            <div class="text-[14.5px] text-[var(--md-sys-color-on-surface-variant)] space-y-3 leading-relaxed">
+                <p>Apps from F-Droid, IzzyOnDroid, and Orion are free and transparent software. Because their creators don't pay Google, Android 16 will try to block your download for 24 hours <a href="https://f-droid.org/2025/10/28/sideloading.html" target="_blank" class="text-[var(--md-sys-color-primary)] hover:underline">[f-droid.org, 2025/10/28/sideloading.html]</a>.</p>
+                
+                <div class="bg-[var(--md-sys-color-surface-container)] p-4 rounded-xl text-[13.5px] border border-[var(--md-sys-color-outline-variant)]">
+                    <p class="font-medium text-[var(--md-sys-color-on-surface)] mb-2">To skip this block right now:</p>
+                    <ul class="list-disc pl-4 space-y-2">
+                        <li>By pressing the button below, we will send you to your phone Settings.</li>
+                        <li>Find and activate the option <strong>"Ignore install restrictions"</strong> (or Bypass coercion screens).</li>
+                        <li class="opacity-80 italic">(If you don't see the menu, first activate developer options by pressing the 'Build number' 7 times in 'About phone').</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <label class="flex items-center gap-3 mt-1 cursor-pointer group p-2 -ml-2 rounded-lg hover:bg-[var(--md-sys-color-surface-container)] transition-colors w-fit">
+                <input type="checkbox" id="dontShowA16" class="w-4 h-4 rounded border-gray-400 text-orange-500 focus:ring-orange-500 focus:ring-2 bg-transparent transition-colors">
+                <span class="text-[13px] font-medium text-[var(--md-sys-color-on-surface)] select-none">Do not show again</span>
+            </label>
+            
+            <div class="flex flex-col sm:flex-row justify-end gap-3 mt-2 pt-2 border-t border-[var(--md-sys-color-outline-variant)]">
+                <button onclick="closeA16Modal()" class="px-5 py-2.5 rounded-full font-medium text-[14px] text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-colors text-center w-full sm:w-auto">
+                    Cancel
+                </button>
+                <button onclick="executeA16Bypass()" class="bg-orange-500 text-white px-5 py-2.5 rounded-full font-bold text-[14px] hover:bg-orange-600 transition-colors shadow-sm text-center flex-1 sm:flex-none">
+                    I've read it all & I'm not scared
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 transition-all duration-300">
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="closeSettings()"></div>
         <div class="bg-[var(--md-sys-color-surface)] w-full max-w-sm rounded-[24px] relative z-10 overflow-hidden flex flex-col animate-slide-up shadow-xl">
             <div class="flex justify-between items-center p-6 pb-2">
-                <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">Settings</h2>
+                <h2 class="text-xl font-medium text-[var(--md-sys-color-on-surface)] font-sans">Tinker Station (Settings)</h2>
                 <button onclick="closeSettings()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface-variant)]"><md-icon translate="no" class="notranslate">close</md-icon></button>
             </div>
             <div class="p-6 flex flex-col gap-6">
@@ -409,10 +450,10 @@
                     <h3 class="font-medium text-sm text-[var(--md-sys-color-on-surface)] mb-3">Application Theme</h3>
                     <div class="flex flex-col gap-2">
                         <button onclick="setTheme('light')" class="w-full py-3 px-4 rounded-xl border border-[var(--md-sys-color-outline-variant)] hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] font-medium text-sm flex items-center justify-start gap-3 transition-all">
-                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">light_mode</md-icon> Light
+                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">light_mode</md-icon> Light (My eyes!)
                         </button>
                         <button onclick="setTheme('dark')" class="w-full py-3 px-4 rounded-xl border border-[var(--md-sys-color-outline-variant)] hover:bg-[var(--md-sys-color-surface-container)] text-[var(--md-sys-color-on-surface)] font-medium text-sm flex items-center justify-start gap-3 transition-all">
-                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">dark_mode</md-icon> Dark
+                            <md-icon translate="no" class="notranslate text-[var(--md-sys-color-primary)]">dark_mode</md-icon> Dark (Vampire mode)
                         </button>
                     </div>
                 </div>
@@ -426,8 +467,6 @@
     <script>
         const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/Juanoto2012/Aura-Repo/main/apps.json';
         const ORION_RAW_URL = 'https://raw.githubusercontent.com/RookieEnough/Orion-Data/main/apps.json';
-        
-        // --- NEW REPOSITORIES INSTEAD OF OPENAPK ---
         const FDROID_URL = 'https://f-droid.org/repo/index-v1.json'; 
         const IZZY_URL = 'https://apt.izzysoft.de/fdroid/repo/index-v1.json';
         
@@ -513,14 +552,14 @@
             myRepos.push({ name, url, isDefault: false });
             localStorage.setItem('aethra_sources', JSON.stringify(myRepos));
             renderInstalledRepos();
-            showToast(`${name} added. Apply changes to load.`);
+            showToast(`Source injected! Sync catalogs to wake it up.`);
         }
 
         function removeRepo(index) {
             myRepos.splice(index, 1);
             localStorage.setItem('aethra_sources', JSON.stringify(myRepos));
             renderInstalledRepos();
-            showToast('Source removed.');
+            showToast("Source nuked from orbit. It's the only way to be sure.");
         }
 
         // ==========================================
@@ -541,7 +580,6 @@
             }
         }
 
-        // Determina de dónde sacar los assets (GitHub, GitLab, Codeberg)
         function getGitProviderInfo(repoUrl) {
             if(!repoUrl) return null;
             if(repoUrl.includes('github.com/')) {
@@ -563,7 +601,6 @@
             let appsList = [];
             let isFDroid = false;
             
-            // F-Droid / IzzyOnDroid index-v1.json format detection
             if (data && data.repo && data.apps && data.packages) {
                 isFDroid = true;
                 const baseUrl = sourceUrl.substring(0, sourceUrl.lastIndexOf('/'));
@@ -581,7 +618,6 @@
                         icon_url: app.icon ? `${baseUrl}/icons/${app.icon}` : null,
                         version: latest ? latest.versionName : '1.0',
                         size: latest && latest.size ? latest.size : null,
-                        // This properly builds absolute URLs starting with http/https for F-Droid and IzzyOnDroid
                         download_url: latest ? `${baseUrl}/${latest.apkName}` : null, 
                         timestamp: app.added || app.lastUpdated || new Date().toISOString(),
                         license: app.license || 'Open Source',
@@ -593,7 +629,6 @@
                 return appsList;
             }
 
-            // Generic JSON Parsing (Custom Stores)
             if (Array.isArray(data)) appsList = data;
             else if (data && data.packages && Array.isArray(data.packages)) appsList = data.packages;
             else if (data && data.apps && Array.isArray(data.apps)) appsList = data.apps;
@@ -614,7 +649,6 @@
                 const pkgName = app.packageName || app.package_name || app.id || app.pkgName || (app.name ? app.name.replace(/\s+/g, '-').toLowerCase() : null);
                 if (!pkgName) return null;
 
-                // Better Localization Handling: Priority to English
                 const getLocalizedValue = (field) => {
                     if (!field) return '';
                     if (typeof field === 'string') return field;
@@ -630,7 +664,6 @@
                 const rawDesc = app.description || app.summary || app.short_desc || '';
                 const description = getLocalizedValue(rawDesc);
                 
-                // Safer HTML stripping
                 const tempDiv = document.createElement("div");
                 tempDiv.innerHTML = description;
                 const cleanDesc = tempDiv.textContent || tempDiv.innerText || "";
@@ -739,10 +772,10 @@
                     <div class="bg-[var(--md-sys-color-surface-container)] inline-flex p-6 rounded-full mb-4 shadow-sm">
                         <md-icon translate="no" class="text-5xl text-[var(--md-sys-color-on-surface-variant)] notranslate">cloud_off</md-icon>
                     </div>
-                    <h3 class="text-[20px] font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Offline</h3>
+                    <h3 class="text-[20px] font-medium mb-2 text-[var(--md-sys-color-on-surface)]">Uh oh, the internet tubes are clogged.</h3>
                     <p class="max-w-md mx-auto text-[14px] text-[var(--md-sys-color-on-surface-variant)] mb-6">${error.message}</p>
                     <button onclick="window.location.reload()" class="bg-[var(--md-sys-color-primary)] text-white px-6 py-2.5 rounded-full font-medium text-[14px] shadow-sm active:scale-[0.98] transition-transform">Retry</button>
-                    <button onclick="openSourcesModal()" class="block mx-auto mt-4 text-[var(--md-sys-color-primary)] font-medium text-[14px]">Check Sources</button>
+                    <button onclick="openSourcesModal()" class="block mx-auto mt-4 text-[var(--md-sys-color-primary)] font-medium text-[14px]">Check the plumbing (Sources)</button>
                 `;
                 emptyState.classList.remove('hidden');
                 emptyState.classList.add('flex', 'flex-col', 'items-center', 'justify-center');
@@ -873,7 +906,7 @@
             if (tabId === 'home') {
                 document.getElementById('bannersSection')?.classList.remove('hidden');
                 document.getElementById('carouselSection')?.classList.remove('hidden');
-                document.getElementById('gridSectionTitle').textContent = "Recommended for you";
+                document.getElementById('gridSectionTitle').textContent = "Stuff you might actually like";
                 
                 let featuredApps = allApps.filter(a => a.featured || a.editors_choice);
                 if (featuredApps.length === 0) featuredApps = allApps.slice(0, 5);
@@ -889,7 +922,7 @@
                 renderCategoriesView();
 
             } else if (tabId === 'novedades') {
-                document.getElementById('gridSectionTitle').textContent = "New releases & updates";
+                document.getElementById('gridSectionTitle').textContent = "Fresh out of the oven";
                 renderGrid(allApps, 'appsGrid');
             }
         }
@@ -926,7 +959,7 @@
             
             if (catApps.length > 0) renderGrid(catApps, 'appsGrid');
             else {
-                document.getElementById('appsGrid').innerHTML = `<div class="col-span-full text-center py-16 text-[var(--md-sys-color-on-surface-variant)]"><p class="text-[14px]">No applications found in this category.</p></div>`;
+                document.getElementById('appsGrid').innerHTML = `<div class="col-span-full text-center py-16 text-[var(--md-sys-color-on-surface-variant)]"><p class="text-[14px]">Nothing to see here. Move along.</p></div>`;
                 document.getElementById('loadMoreContainer').classList.add('hidden');
             }
         }
@@ -957,7 +990,7 @@
         }
 
         function renderCarousel(appsToRender, containerId) {
-            const container = document.getElementById('carouselSection'); // Fix fallback to ID
+            const container = document.getElementById('carouselSection'); 
             const carouselElement = document.getElementById(containerId);
             carouselElement.innerHTML = '';
             appsToRender.forEach(app => {
@@ -1117,22 +1150,73 @@
             return platforms;
         }
 
+        // --- Android 16 Logic Setup ---
+        let pendingDownloadUrl = null;
+
+        function triggerAndroidDownload(url, name) {
+            if (localStorage.getItem('hideAndroid16Warning') === 'true') {
+                showToast(`Grabbing ${name || 'the APK'}...`);
+                const a = document.createElement('a'); a.href = url; a.target = '_blank';
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+            } else {
+                pendingDownloadUrl = url;
+                const a16Modal = document.getElementById('a16Modal');
+                a16Modal.classList.remove('hidden');
+                a16Modal.classList.add('flex');
+            }
+        }
+
+        function closeA16Modal() {
+            const a16Modal = document.getElementById('a16Modal');
+            a16Modal.classList.add('hidden');
+            a16Modal.classList.remove('flex');
+            pendingDownloadUrl = null;
+        }
+
+        function executeA16Bypass() {
+            if (document.getElementById('dontShowA16').checked) {
+                localStorage.setItem('hideAndroid16Warning', 'true');
+            }
+            
+            // Fire off the download behind the scenes
+            if (pendingDownloadUrl) {
+                showToast("Download started! You're off to the Settings now...");
+                const a = document.createElement('a'); 
+                a.href = pendingDownloadUrl; 
+                a.target = '_blank';
+                document.body.appendChild(a); 
+                a.click(); 
+                document.body.removeChild(a);
+            }
+
+            // Small delay to ensure download intent works before window redirects
+            setTimeout(() => {
+                // Execute Android Intent JS logic
+                window.location.href = "intent:#Intent;action=android.settings.APPLICATION_DEVELOPMENT_SETTINGS;end";
+                closeA16Modal();
+            }, 300);
+        }
+
         function buildDownloadUI(app, platforms) {
             const container = document.getElementById('modalDownloads');
             container.innerHTML = '';
             
             let totalOptions = 0;
             
-            const addPlatformGroup = (group, icon, label, defaultColorClass) => {
+            const addPlatformGroup = (group, icon, label, defaultColorClass, isAndroid = false) => {
                 if (group && group.length > 0) {
                     group.forEach(asset => {
                         totalOptions++;
                         const btn = document.createElement('button');
                         btn.className = "platform-btn group w-full text-left animate-fade-in";
                         btn.onclick = () => {
-                            showToast(`Starting download: ${asset.name}`);
-                            const a = document.createElement('a'); a.href = asset.url; a.target = '_blank';
-                            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                            if (isAndroid) {
+                                triggerAndroidDownload(asset.url, asset.name);
+                            } else {
+                                showToast(`Grabbing ${asset.name}...`);
+                                const a = document.createElement('a'); a.href = asset.url; a.target = '_blank';
+                                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                            }
                         };
                         
                         btn.innerHTML = `
@@ -1153,7 +1237,7 @@
             };
 
             if (platforms) {
-                addPlatformGroup(platforms.android, 'android', 'Download for Android', 'text-green-600');
+                addPlatformGroup(platforms.android, 'android', 'Download for Android', 'text-green-600', true);
                 addPlatformGroup(platforms.windows, 'window', 'Download for Windows', 'text-blue-500');
                 addPlatformGroup(platforms.linux, 'terminal', 'Download for Linux', 'text-orange-500');
                 addPlatformGroup(platforms.macos, 'laptop_mac', 'Download for Mac', 'text-gray-600 dark:text-gray-300');
@@ -1166,14 +1250,12 @@
                 const btn = document.createElement('button');
                 btn.className = "w-full bg-[var(--md-sys-color-primary)] text-white rounded-full py-3 font-medium text-[15px] transition-all hover:shadow-md active:scale-[0.99] flex justify-center items-center gap-2 animate-fade-in";
                 btn.onclick = () => {
-                    showToast('Starting download...');
-                    const a = document.createElement('a'); a.href = app.download_url; a.target = '_blank';
-                    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    triggerAndroidDownload(app.download_url, 'the APK');
                 };
-                btn.innerHTML = `Download APK <span class="text-white/80 font-normal text-sm">(${finalSize})</span>`;
+                btn.innerHTML = `Grab the APK <span class="text-white/80 font-normal text-sm">(${finalSize})</span>`;
                 container.appendChild(btn);
             } else if (totalOptions === 0) {
-                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2 animate-fade-in">No binary files found. Check the source code.</div>`;
+                container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] text-sm py-2 animate-fade-in">No binary files found. You might have to compile this one yourself, nerd.</div>`;
             }
         }
 
@@ -1220,7 +1302,7 @@
             } else { screenshotsContainer.classList.add('hidden'); }
 
             const container = document.getElementById('modalDownloads');
-            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Fetching versions and downloads...</div>`;
+            container.innerHTML = `<div class="text-center text-[var(--md-sys-color-on-surface-variant)] py-4 text-sm flex justify-center items-center gap-2"><md-icon class="animate-spin text-lg">autorenew</md-icon> Digging through repos for versions...</div>`;
             
             modal.classList.remove('hidden'); modal.classList.add('flex');
             document.body.style.overflow = 'hidden'; 
