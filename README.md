@@ -58,7 +58,7 @@ El archivo `apps.json` contiene la base de datos de todas las aplicaciones lista
   "timestamp": "2026-04-03T12:00:00Z"
 }
 ```
- # 🌌 Aethra (by JNTX Studio)
+ # 🌌 Aethra (by OvertNet Studios)
 
 > **"Innovación sin dogmas, creación sin permisos."**
 
@@ -79,7 +79,7 @@ En Aura Repo, rompemos con las reglas obsoletas que frenan a los desarrolladores
 
 ## 🚀 Cómo añadir Aethra a tu dispositivo
 
-Para disfrutar de **Ventarys** y otras aplicaciones de **JNTX Studio** sin restricciones ni etiquetas rojas:
+Para disfrutar de **Ventarys** y otras aplicaciones de **OvertNet Studios** sin restricciones ni etiquetas rojas:
 
 1. Copia la URL de nuestro repositorio:  
    `https://github.com/Juanoto2012/Aura-Repo`
